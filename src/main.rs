@@ -4,9 +4,8 @@ use std::process::exit;
 use std::{env, io};
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
 
-    let file_path = Config::build(&args).unwrap_or_else(|err| {
+    let file_path = Config::build(env::args()).unwrap_or_else(|err| {
         eprintln!("Error: {}", err);
         exit(1)
     });

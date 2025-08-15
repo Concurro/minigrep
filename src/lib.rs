@@ -9,9 +9,7 @@ pub fn run(config: &Config) -> Result<(), Box<dyn Error>> {
     } else {
         search_case_insensitive(&config.query, &contents)
     };
-
     print_results(&config.query, &search_results);
-
     Ok(())
 }
 
@@ -22,13 +20,17 @@ pub struct Config {
 }
 
 impl Config {
-    pub fn build(args: &[String]) -> Result<Config, &'static str> {
-        if args.len() < 3 {
-            return Err("Not enough arguments");
-        }
+    pub fn build(mut args: impl Iterator<Item = String>) -> Result<Config, &'static str> {
+        args.next();
         Ok(Config {
-            query: args[2].clone(),
-            file_path: args[1].clone(),
+            query: match args.next() {
+                None => return Err("缺少搜索关键字参数"),
+                Some(x) => x,
+            },
+            file_path: match args.next() {
+                None => return Err("缺少文件路径参数"),
+                Some(x) => x,
+            },
             ignore: env::var("IGNORE_CASE").is_ok(),
         })
     }
