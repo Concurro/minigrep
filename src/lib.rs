@@ -23,12 +23,12 @@ impl Config {
     pub fn build(mut args: impl Iterator<Item = String>) -> Result<Config, &'static str> {
         args.next();
         Ok(Config {
-            query: match args.next() {
-                None => return Err("缺少搜索关键字参数"),
-                Some(x) => x,
-            },
             file_path: match args.next() {
                 None => return Err("缺少文件路径参数"),
+                Some(x) => x,
+            },
+            query: match args.next() {
+                None => return Err("缺少搜索关键字参数"),
                 Some(x) => x,
             },
             ignore: env::var("IGNORE_CASE").is_ok(),
