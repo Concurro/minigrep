@@ -1,6 +1,3 @@
-好的，这是为 `minigrep` 项目生成的格式优美的 README 文件内容。您可以将以下 Markdown 代码复制到项目根目录的 `README.md` 文件中，这样在 GitHub 上就能正常渲染，获得非常好的视觉效果。
-
----
 
 # Minigrep
 
