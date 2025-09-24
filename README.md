@@ -92,9 +92,3 @@ minigrep/
 如果您有任何建议或发现了问题，请随时在 GitHub 上提交 Issue 或 Pull Request。 | Please feel free to submit issues or pull requests on GitHub.
 
 ---
-
-## 📄 许可证 | License
-
-此项目采用 Rust 项目的标准许可证（通常为 MIT 或 Apache-2.0）。请查看代码库中的 `LICENSE` 文件以了解详情。 | This project is licensed under the standard Rust project license (typically MIT or Apache-2.0). Please see the `LICENSE` file in the repository for details.
-
----
