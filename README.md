@@ -1,127 +1,103 @@
-Minigrep
-​​Minigrep​​ is a lightweight command-line tool written in Rust, inspired by the classic grepcommand. It allows you to search for a text pattern within files efficiently.
+好的，这是为 `minigrep` 项目生成的格式优美的 README 文件内容。您可以将以下 Markdown 代码复制到项目根目录的 `README.md` 文件中，这样在 GitHub 上就能正常渲染，获得非常好的视觉效果。
 
-Features
-​​Basic Text Search:​​ Search for a query string within a specified file.
+---
 
-​​Case-Insensitive Search:​​ Use environment variables to perform case-insensitive searches.
+# Minigrep
 
-​​Error Handling:​​ Provides user-friendly error messages for common issues like file not found.
+**Minigrep** 是一个使用 Rust 编写的轻量级命令行搜索工具，其灵感来源于经典的 `grep` 命令。它用于高效地在文件中搜索文本模式。
 
-Installation
-​​Prerequisites:​​ Ensure you have Rust and Cargoinstalled on your system.
+**Minigrep** is a lightweight command-line search tool written in Rust, inspired by the classic `grep` command. It is used to efficiently search for text patterns within files.
 
-​​Clone the Repository:​​
+---
 
-git clone https://github.com/Concurro/minigrep.git
-cd minigrep
-​​Build and Run:​​ You can run it directly using Cargo.
+## ✨ 功能特点 | Features
 
-cargo run -- <query> <filepath>
-​​Build for Production:​​ To build an optimized binary.
+*   **基础文本搜索** | **Basic Text Search:** 在指定文件中搜索查询字符串 | Search for a query string within a specified file.
+*   **不区分大小写搜索** | **Case-Insensitive Search:** 通过环境变量启用，执行不区分大小写的搜索 | Enable via environment variable to perform case-insensitive searches.
+*   **友好的错误处理** | **User-Friendly Error Handling:** 为文件未找到等常见问题提供清晰的错误信息 | Provides clear error messages for common issues like file not found.
 
-cargo build --release
-The executable will be located at ./target/release/minigrep.
+---
 
-Usage
-The basic syntax for using minigrepis:
+## 🚀 安装 | Installation
 
-minigrep <query> <filepath>
-<query>: The string you want to search for.
+1.  **前置要求** | **Prerequisites:** 确保您的系统已安装 https://www.rust-lang.org/tools/install | Ensure you have https://www.rust-lang.org/tools/install installed on your system.
+2.  **克隆代码库** | **Clone the Repository:**
+    ```bash
+    git clone https://github.com/Concurro/minigrep.git
+    cd minigrep
+    ```
+3.  **直接运行（开发模式）** | **Run Directly (Development Mode):**
+    ```bash
+    cargo run -- <查询词|query> <文件路径|filepath>
+    ```
+4.  **构建发布版本** | **Build for Release:** 构建优化后的二进制可执行文件 | To build an optimized binary.
+    ```bash
+    cargo build --release
+    ```
+    生成的二进制文件将位于 `./target/release/minigrep` | The executable will be located at `./target/release/minigrep`.
 
-<filepath>: The path to the file you want to search in.
+---
 
-Example
-Search for the word "important" in notes.txt:
+## 📖 使用方法 | Usage
 
-minigrep important notes.txt
-​​Case-Insensitive Search:​​ Set the CASE_INSENSITIVEenvironment variable to 1to perform a search that ignores case.
+基本语法 | The basic syntax for using `minigrep` is:
 
-# On Linux/macOS
-export CASE_INSENSITIVE=1
-minigrep Rust Cargo.toml
+```bash
+minigrep <查询词|query> <文件路径|filepath>
+```
 
-# On Windows Command Prompt
-set CASE_INSENSITIVE=1
-minigrep Rust Cargo.toml
+### 🔍 示例 | Examples
 
-# On Windows PowerShell
-$env:CASE_INSENSITIVE=1
-minigrep Rust Cargo.toml
-This will find lines containing "Rust", "RUST", "rust", etc.
+1.  **基础搜索** | **Basic Search:** 在 `notes.txt` 中搜索单词 "important" | Search for the word "important" in `notes.txt`.
+    ```bash
+    minigrep important notes.txt
+    ```
 
-Project Structure
-src/
-  lib.rs  # Contains the core library logic (e.g., `search` function)
-  main.rs # Contains the command-line argument parsing and error handling
-Cargo.toml # Rust project manifest file
-Cargo.lock # Dependency lock file
-Contributing
-Contributions are welcome! Please feel free to submit issues or pull requests on GitHub.
+2.  **不区分大小写搜索** | **Case-Insensitive Search:** 通过设置环境变量来忽略大小写 | Set the `CASE_INSENSITIVE` environment variable to `1` to ignore case.
 
-License
-This project is licensed under the standard Rust project license (typically MIT or Apache-2.0). Please see the LICENSEfile in the repository for details.
+    **Linux/macOS (Bash/Zsh):**
+    ```bash
+    export CASE_INSENSITIVE=1
+    minigrep rust Cargo.toml # 会匹配 "rust", "Rust", "RUST" 等
+    ```
 
-Minigrep 中文说明
-​​Minigrep​​ 是一个使用 Rust 编写的轻量级命令行工具，其灵感来源于经典的 grep命令。它可以让你高效地在文件中搜索文本模式。
+    **Windows (Command Prompt):**
+    ```cmd
+    set CASE_INSENSITIVE=1
+    minigrep rust Cargo.toml
+    ```
 
-功能特点
-​​基础文本搜索:​​ 在指定文件中搜索查询字符串。
+    **Windows (PowerShell):**
+    ```powershell
+    $env:CASE_INSENSITIVE=1
+    minigrep rust Cargo.toml
+    ```
 
-​​不区分大小写搜索:​​ 使用环境变量来执行不区分大小写的搜索。
+---
 
-​​错误处理:​​ 针对文件未找到等常见问题提供用户友好的错误信息。
+## 📁 项目结构 | Project Structure
 
-安装
-​​ prerequisites (前置要求):​​ 确保您的系统已安装 Rust 和 Cargo。
+```
+minigrep/
+├── src/
+│   ├── lib.rs      # 包含核心库逻辑（例如 `search` 函数）| Contains the core library logic (e.g., `search` function)
+│   └── main.rs     # 包含命令行参数解析和错误处理 | Contains the command-line argument parsing and error handling
+├── Cargo.toml      # Rust 项目清单文件 | Rust project manifest file
+├── Cargo.lock      # 依赖锁文件 | Dependency lock file
+└── README.md       # 项目说明文件 | This project description file
+```
 
-​​克隆代码库:​​
+---
 
-git clone https://github.com/Concurro/minigrep.git
-cd minigrep
-​​构建并运行:​​ 你可以直接使用 Cargo 运行它。
+## 🤝 贡献 | Contributing
 
-cargo run -- <查询词> <文件路径>
-​​生产环境构建:​​ 要构建优化后的二进制可执行文件。
+欢迎贡献代码！ | Contributions are welcome!
+如果您有任何建议或发现了问题，请随时在 GitHub 上提交 Issue 或 Pull Request。 | Please feel free to submit issues or pull requests on GitHub.
 
-cargo build --release
-生成的二进制文件将位于 ./target/release/minigrep。
+---
 
-使用方法
-使用 minigrep的基本语法是：
+## 📄 许可证 | License
 
-minigrep <查询词> <文件路径>
-<查询词>: 你想要搜索的字符串。
+此项目采用 Rust 项目的标准许可证（通常为 MIT 或 Apache-2.0）。请查看代码库中的 `LICENSE` 文件以了解详情。 | This project is licensed under the standard Rust project license (typically MIT or Apache-2.0). Please see the `LICENSE` file in the repository for details.
 
-<文件路径>: 你想要搜索的文件的路径。
-
-示例
-在 notes.txt中搜索单词 "important"：
-
-minigrep important notes.txt
-​​不区分大小写搜索:​​ 将环境变量 CASE_INSENSITIVE设置为 1来执行不区分大小写的搜索。
-
-# 在 Linux/macOS 上
-export CASE_INSENSITIVE=1
-minigrep Rust Cargo.toml
-
-# 在 Windows Command Prompt 上
-set CASE_INSENSITIVE=1
-minigrep Rust Cargo.toml
-
-# 在 Windows PowerShell 上
-$env:CASE_INSENSITIVE=1
-minigrep Rust Cargo.toml
-这将找到包含 "Rust"、"RUST"、"rust" 等内容的行。
-
-项目结构
-src/
-  lib.rs  # 包含核心库逻辑（例如 `search` 函数）
-  main.rs # 包含命令行参数解析和错误处理
-Cargo.toml # Rust 项目清单文件
-Cargo.lock # 依赖锁文件
-贡献代码
-欢迎贡献！您可以在 GitHub 上提交 Issue 或 Pull Request。
-
-许可证
-此项目采用 Rust 项目的标准许可证（通常为 MIT 或 Apache-2.0）。请查看代码库中的 LICENSE文件以了解详情。
+---
